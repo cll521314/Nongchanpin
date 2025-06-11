@@ -44,12 +44,7 @@ public class GlobalExceptionIntercepter {
     public Result<String> InvalidateTokenException(){
         return new Result<String>(false, StatusCode.ERROR,"账号登陆失效，请重新登录","账号登陆失效，请重新登录");
     }
-    //
-//    @ExceptionHandler(AccessDeniedException.class)
-//    public Result<String> accessDeniedException(){
-//        return new Result<String>(false, StatusCode.ERROR,"账号登陆失效，请重新登录","账号登陆失效，请重新登录");
-//    }
-//    全部异常，
+
     @ExceptionHandler(Exception.class)
     public Result<String> DAException(){
         return new Result<String>(false, StatusCode.ERROR,"有异常待解决，具体异常待看控制台","有异常待解决，具体异常待看控制台");
