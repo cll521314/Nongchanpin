@@ -1,17 +1,17 @@
 /*
- Navicat Premium Data Transfer
+ Navicat Premium Dump SQL
 
- Source Server         : localhost_3306
+ Source Server         : yang
  Source Server Type    : MySQL
- Source Server Version : 80013
+ Source Server Version : 50540 (5.5.40)
  Source Host           : localhost:3306
  Source Schema         : rongxiaotong
 
  Target Server Type    : MySQL
- Target Server Version : 80013
+ Target Server Version : 50540 (5.5.40)
  File Encoding         : 65001
 
- Date: 24/08/2023 22:12:59
+ Date: 11/06/2025 17:48:10
 */
 
 SET NAMES utf8mb4;
@@ -29,7 +29,7 @@ CREATE TABLE `tb_address`  (
   `address_detail` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '收货地址',
   `is_default` tinyint(4) NULL DEFAULT 0 COMMENT '是否默认，0，不是，默认是1',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 193 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 193 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of tb_address
@@ -43,7 +43,6 @@ INSERT INTO `tb_address` VALUES (154, 'gaoge', '高歌', '18977771439', '山东�
 INSERT INTO `tb_address` VALUES (171, 'gaoge', '高歌', '18977771439', '山东省德州市夏津县', 0);
 INSERT INTO `tb_address` VALUES (172, 'admin', '成吉思汗', '18766661438', '山东青岛市崂山区', 1);
 INSERT INTO `tb_address` VALUES (173, 'admin', '不朽大帝', '18766661438', '山东青岛市崂山区', 0);
-INSERT INTO `tb_address` VALUES (178, 'lzh', '11', '11', '11', 1);
 INSERT INTO `tb_address` VALUES (184, 'wyn3', '李增虎', '11111111111', '海信财智谷', 0);
 INSERT INTO `tb_address` VALUES (186, 'lisi', '李四', '15623652365', '山东省临沂市河东区', 1);
 INSERT INTO `tb_address` VALUES (187, 'lisi', '李四', '15623652365', '山东省青岛市崂山区', 0);
@@ -65,7 +64,7 @@ CREATE TABLE `tb_bank`  (
   `rate` decimal(65, 2) NOT NULL,
   `repayment` int(11) NOT NULL,
   PRIMARY KEY (`bank_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1011 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1011 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of tb_bank
@@ -90,9 +89,9 @@ CREATE TABLE `tb_discuss`  (
   `knowledge_id` int(11) NOT NULL,
   `own_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `create_time` datetime(0) NOT NULL,
+  `create_time` datetime NOT NULL,
   PRIMARY KEY (`discuss_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 113 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 113 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of tb_discuss
@@ -123,7 +122,7 @@ CREATE TABLE `tb_expert`  (
   `position` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `belong` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`user_name`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of tb_expert
@@ -150,8 +149,8 @@ CREATE TABLE `tb_finance`  (
   `money` decimal(65, 2) NOT NULL,
   `rate` decimal(65, 2) NOT NULL,
   `repayment` int(11) NOT NULL,
-  `create_time` datetime(0) NOT NULL,
-  `update_time` datetime(0) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_time` datetime NOT NULL,
   `combination_name1` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `combination_phone1` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `combination_idnum1` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
@@ -161,7 +160,7 @@ CREATE TABLE `tb_finance`  (
   `file_info` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   PRIMARY KEY (`finance_id`) USING BTREE,
   INDEX `bank_id`(`bank_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 145 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 145 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of tb_finance
@@ -193,10 +192,10 @@ CREATE TABLE `tb_financing_intention`  (
   `repayment_period` int(11) NOT NULL,
   `area` int(11) NOT NULL,
   `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `create_time` datetime(0) NOT NULL,
-  `update_time` datetime(0) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_time` datetime NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tb_financing_intention
@@ -216,10 +215,10 @@ CREATE TABLE `tb_knowledge`  (
   `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `pic_path` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `own_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '发布者名字',
-  `create_time` time(0) NOT NULL,
-  `update_time` datetime(0) NOT NULL,
+  `create_time` time NOT NULL,
+  `update_time` datetime NOT NULL,
   PRIMARY KEY (`knowledge_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 36 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 36 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of tb_knowledge
@@ -250,21 +249,20 @@ CREATE TABLE `tb_order`  (
   `picture` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `own_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '发起订单人',
   `cooperation_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '合作人名字',
-  `create_time` datetime(0) NOT NULL,
-  `update_time` datetime(0) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_time` datetime NOT NULL,
   `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '订单收货地址',
   PRIMARY KEY (`order_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 153 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 153 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of tb_order
 -- ----------------------------
-INSERT INTO `tb_order` VALUES (66, '地瓜粉红薯淀粉', 123.00, '福建闽南泉州官桥正宗农家手工自制地瓜粉红薯淀粉番薯粉无添加剂', 0, 'goods', '6c1c2f5b38ac4be190dfc4a421d65f73.jpg', 'wyn3', NULL, '2021-08-27 16:15:00', '2021-08-27 16:15:00', '高歌 18977771439 山东省德州市夏津县');
+INSERT INTO `tb_order` VALUES (66, '地瓜粉红薯淀粉', 123.00, '福建闽南泉州官桥正宗农家手工自制地瓜粉红薯淀粉番薯粉无添加剂', 1, 'goods', '6c1c2f5b38ac4be190dfc4a421d65f73.jpg', 'wyn3', NULL, '2021-08-27 16:15:00', '2021-08-27 16:15:00', '高歌 18977771439 山东省德州市夏津县');
 INSERT INTO `tb_order` VALUES (67, '新疆小红杏吊干杏', 45.00, '新疆小红杏吊干杏新鲜杏子农产品应季1斤装水果特甜小白杏净重4斤', 1, 'goods', 'a5ffef69b838400695cf8f4203e6626a.jpg', 'wyn3', NULL, '2021-08-27 16:17:10', '2021-08-27 16:17:10', '张绪昆 18354648787 山东省济南市');
 INSERT INTO `tb_order` VALUES (68, '云南特产大香蕉', 23.00, '云南特产冬季水果大香蕉新鲜当季10斤农产品直销土特产农家孕妇水', 1, 'goods', 'a4418dc8694a4c51875e18c045169697.jpg', 'wyn3', NULL, '2021-08-27 16:19:03', '2021-08-27 16:19:03', '山东省威海市');
 INSERT INTO `tb_order` VALUES (69, '山东大葱', 34.00, '山东大葱新鲜5斤时令蔬菜东北香葱包邮蘸酱铁杆章丘10号助农产品', 1, 'goods', '8781c37f24d24376bfd037fcbcb44dc5.jpg', 'wyn3', NULL, '2021-08-27 16:20:15', '2021-08-27 16:20:15', '山东省威海市');
 INSERT INTO `tb_order` VALUES (70, '大别山野生羊肚菌', 345.00, '高端消费人群厨房食材 大别山野生羊肚菌干货煲汤菌菇类特产50克', 1, 'goods', '2004039df5b64028bec5d06bdad06f6b.jpg', 'wyn3', NULL, '2021-08-27 16:28:52', '2021-08-27 16:28:52', '张绪昆 18354648787 山东省济南市');
-INSERT INTO `tb_order` VALUES (71, '苹果', 22.81, '东北鸡心果5斤锦绣海棠果特产玫瑰小苹果花红沙果孕妇新鲜水果。原产地直发，酸甜可口', 0, 'goods', '4f9d706af7be455cb246c6615a56b631.jpg', 'wyn3', NULL, '2021-08-27 16:30:06', '2022-07-22 10:01:19', '山东省威海市');
 INSERT INTO `tb_order` VALUES (72, '白溪豆腐干香', 56.00, '白溪豆腐干香干湖南新化特产农家石磨手工风味柴火烟熏非武冈豆干', 1, 'goods', 'c1300fb2e1a34873a8f0ff6274df5dd8.jpg', 'wyn3', NULL, '2021-08-27 16:30:43', '2021-08-27 16:30:43', '山东省威海市');
 INSERT INTO `tb_order` VALUES (73, '红柚', 23.80, '福建平和红心柚子9斤红肉蜜柚水果新鲜密柚当季琯溪孕妇整箱包邮', 1, 'goods', '3b39708a162f4e6881e3e4e502a2e3a6.jpg', 'wyn3', NULL, '2021-08-27 16:30:48', '2021-08-27 16:30:48', '张绪昆 18396833008 山东省青岛市');
 INSERT INTO `tb_order` VALUES (74, '百香果', 14.90, '广西百香果9斤特大果新鲜水果紫皮百果香果酱白香果5一级10包邮', 1, 'goods', '905b6a28de85432c9c969c6d3e06fff7.jpg', 'wyn3', NULL, '2021-08-27 16:31:51', '2021-08-27 16:31:51', '山东省威海市');
@@ -316,10 +314,10 @@ CREATE TABLE `tb_purchase`  (
   `total_price` decimal(65, 2) NOT NULL,
   `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '订单收货地址',
   `purchase_status` int(11) NOT NULL,
-  `create_time` datetime(0) NOT NULL,
-  `update_time` datetime(0) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_time` datetime NOT NULL,
   PRIMARY KEY (`purchase_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 133 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 133 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of tb_purchase
@@ -344,7 +342,7 @@ CREATE TABLE `tb_purchase_detail`  (
   `count` int(11) NOT NULL,
   PRIMARY KEY (`detail_id`) USING BTREE,
   INDEX `purchase_id`(`purchase_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 137 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 137 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of tb_purchase_detail
@@ -372,7 +370,7 @@ CREATE TABLE `tb_question`  (
   `answer` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '回答',
   `status` int(11) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 115 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 112 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of tb_question
@@ -402,7 +400,7 @@ CREATE TABLE `tb_reserve`  (
   `answer` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '回答',
   `status` int(11) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 214 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 211 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of tb_reserve
@@ -422,12 +420,12 @@ CREATE TABLE `tb_sell_purchase`  (
   `sum_price` decimal(65, 2) NOT NULL,
   `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '订单收货地址',
   `purchase_status` int(11) NOT NULL,
-  `create_time` datetime(0) NOT NULL,
-  `update_time` datetime(0) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_time` datetime NOT NULL,
   `order_id` int(11) NOT NULL,
   PRIMARY KEY (`sell_purchase_id`) USING BTREE,
   INDEX `purchase_id`(`purchase_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of tb_sell_purchase
@@ -449,10 +447,10 @@ CREATE TABLE `tb_shoppingcart`  (
   `order_id` int(11) NOT NULL,
   `count` int(11) NOT NULL,
   `own_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `create_time` datetime(0) NOT NULL,
-  `update_time` datetime(0) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_time` datetime NOT NULL,
   PRIMARY KEY (`shopping_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of tb_shoppingcart
@@ -471,36 +469,31 @@ CREATE TABLE `tb_user`  (
   `identity_num` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地址',
   `role` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'user' COMMENT 'user普通用户，expert专家，admin管理员',
-  `create_time` datetime(0) NOT NULL,
-  `update_time` datetime(0) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_time` datetime NOT NULL,
   `integral` int(11) NULL DEFAULT 500 COMMENT '积分500',
   `credit` int(11) NULL DEFAULT 5 COMMENT '信誉1，2，3，4，5',
   `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '头像',
   `real_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`user_name`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of tb_user
 -- ----------------------------
-INSERT INTO `tb_user` VALUES ('abcdefg', '$2a$10$oVDMOTSpobCwLTuhT/JWMuOubvolGzz7NMUunmDt6ssdvuJJBhzK2', 'hijklmn', NULL, NULL, NULL, 'expert', '2023-07-08 23:15:01', '2023-07-14 20:10:00', 0, 0, 'rongxiaotong.gif', NULL);
 INSERT INTO `tb_user` VALUES ('admin', '$2a$10$AC1gCsk1V5Ov7n.zvkxxvuMM4f3BnWmJqr4jNNYtVAm8j4nBdxIUq', '管理员', '17894286579', '370343199612012718', '山东省青岛市', 'admin', '2021-09-01 09:00:51', '2022-09-01 16:35:24', 0, 0, '2ae82e5cf7ca47c9ab516d37dccab5dd.jpg', '');
-INSERT INTO `tb_user` VALUES ('dry', '$2a$10$.VkMB3FydehIXyrrktlc.ePQukX/6lhAmy2p9Q6Zw89zsSjEX8IXe', '丁瑞旸', '18779437662', NULL, '山东省济南市', 'expert', '2023-06-25 16:51:44', '2023-07-10 09:16:33', 0, 0, 'rongxiaotong.gif', '丁瑞旸');
-INSERT INTO `tb_user` VALUES ('dzk', '$2a$10$gt6wirjlVFTjnB/NmFW8UOc241GSv6PIR2mQVrH/JM7nTtX.vpCOi', 'dong', '15275327869', '130182200208145731', '山东省济南市', 'user', '2023-06-25 16:48:58', '2023-07-15 09:52:39', 0, 0, 'de0f96ffe9514bf1a162bf1ec48f4e59.png', '董照坤');
+INSERT INTO `tb_user` VALUES ('cao', '$2a$10$ruqBLrL.jQfuDZds36qvvueqKTtwo467aHwRlH6N0baWlx/pUTKlm', 'ccc', NULL, NULL, NULL, 'admin', '2025-06-10 13:03:21', '2025-06-10 13:03:21', 0, 0, 'rongxiaotong.gif', NULL);
 INSERT INTO `tb_user` VALUES ('gaoge', '$2a$10$AC1gCsk1V5Ov7n.zvkxxvuMM4f3BnWmJqr4jNNYtVAm8j4nBdxIUq', '高歌', '18766661439', '370343199612016352', '山东省临沂市', 'expert', '2021-08-27 16:05:20', '2022-09-01 11:21:11', 0, 0, 'f1bd96ecafba46cca7a0c6af92d84fbd.jpg', '高歌');
 INSERT INTO `tb_user` VALUES ('lisi', '$2a$10$AC1gCsk1V5Ov7n.zvkxxvuMM4f3BnWmJqr4jNNYtVAm8j4nBdxIUq', 'lisi', '15623652365', '371323199601062719', '山东省临沂市', 'user', '2022-08-19 16:39:11', '2022-09-01 17:20:04', 0, 0, '2ae82e5cf7ca47c9ab516d37dccab5d2.jpg', '李思');
 INSERT INTO `tb_user` VALUES ('lzh', '$2a$10$AC1gCsk1V5Ov7n.zvkxxvuMM4f3BnWmJqr4jNNYtVAm8j4nBdxIUq', 'llllzzzzhhhh', '15621367568', '373312199801032719', '山东省威海市', 'user', '2022-07-22 11:05:54', '2022-09-07 16:45:53', 0, 0, 'ac10c6dc98d14afda5f09ba81f286197.jpg', '李增虎');
-INSERT INTO `tb_user` VALUES ('pys', '$2a$10$FSfmmsSmhtHJgy7magEBXu1zDHgVjcuLAswkbGAKvfaezLsqHoMHC', 'pys', NULL, NULL, NULL, 'admin', '2023-07-14 19:56:41', '2023-07-14 19:56:41', 0, 0, 'rongxiaotong.gif', NULL);
 INSERT INTO `tb_user` VALUES ('tyy', '$2a$10$AC1gCsk1V5Ov7n.zvkxxvuMM4f3BnWmJqr4jNNYtVAm8j4nBdxIUq', '帅气的小公举', '15236983695', '370343199613652415', '山东省青岛市', 'user', '2021-08-30 09:59:50', '2022-08-10 15:44:36', 0, 0, '39557b8fb7a54f81833c8d4a7309b05c.jpg', '唐艳艳');
 INSERT INTO `tb_user` VALUES ('wangya', '$2a$10$nLKfTbJqrA5IoRdY.PsZBOACe2s4H3k2NPKLy5LdWL0wKWno0.oDG', 'wangya', '13792449255', '370213198911120506', '山东省青岛市', 'user', '2022-09-08 10:14:22', '2022-09-08 10:19:34', 0, 0, 'rongxiaotong.gif', '王娅');
 INSERT INTO `tb_user` VALUES ('wyn', '$2a$10$AC1gCsk1V5Ov7n.zvkxxvuMM4f3BnWmJqr4jNNYtVAm8j4nBdxIUq', 'wanayuna', '18711236658', '370123200008123456', '山东省威海市', 'expert', '2021-08-27 16:05:20', '2022-09-01 11:21:11', 0, 0, 'f1bd96ecafba46cca7a0c6af92d84fbd.jpg', '李玉娜');
 INSERT INTO `tb_user` VALUES ('wyn3', '$2a$10$AC1gCsk1V5Ov7n.zvkxxvuMM4f3BnWmJqr4jNNYtVAm8j4nBdxIUq', 'wyn3', '15630429628', '324624861233056852', '山东省青岛市', 'user', '2022-04-11 11:36:03', '2022-08-18 15:04:18', 0, 0, 'bd12eba3a9a24d89845ebbdb7fbff448.jpg', '王亚楠');
-INSERT INTO `tb_user` VALUES ('yyy', '$2a$10$wmVjkH/w5WGpUp5XXQNAJubXBnIJ94RSm9Hpg3ZRnsjKxNlEKcOvq', 'yyyy', NULL, NULL, NULL, 'user', '2023-07-14 20:02:09', '2023-07-14 20:02:09', 0, 0, 'rongxiaotong.gif', NULL);
-INSERT INTO `tb_user` VALUES ('za081444', '$2a$10$k0yr2M5HHe2YwBRv2mBd5Ozh5Z3UY9zEeG/kSuhV.3Hzj1REb68FC', '222', NULL, NULL, NULL, 'user', '2023-07-06 15:40:44', '2023-07-06 15:40:44', 0, 0, 'rongxiaotong.gif', NULL);
+INSERT INTO `tb_user` VALUES ('yang', 'cc123456', 'cc', NULL, NULL, NULL, 'expert', '2025-06-03 18:06:25', '2025-06-03 18:06:25', 0, 0, 'rongxiaotong.gif', NULL);
 INSERT INTO `tb_user` VALUES ('zhangsan', '$2a$10$AC1gCsk1V5Ov7n.zvkxxvuMM4f3BnWmJqr4jNNYtVAm8j4nBdxIUq', 'zhangsan', '13792499274', '370343199609176060', '山东省青岛市', 'user', '2022-08-19 16:37:10', '2022-08-19 16:37:10', 0, 0, 'bd12eba3a9a24d89845ebbdb7fbff448.jpg', '张三');
 INSERT INTO `tb_user` VALUES ('zhangxu', '$2a$10$AC1gCsk1V5Ov7n.zvkxxvuMM4f3BnWmJqr4jNNYtVAm8j4nBdxIUq', '张旭', '13456567878', '370123200001012233', '山东省青岛市', 'expert', '2021-08-31 10:13:42', '2022-08-10 15:43:58', 0, 0, '2ae82e5cf7ca47c9ab516d37dccab5dd.jpg', '张旭');
 INSERT INTO `tb_user` VALUES ('zhangxukun', '$2a$10$AC1gCsk1V5Ov7n.zvkxxvuMM4f3BnWmJqr4jNNYtVAm8j4nBdxIUq', 'kelven', '13544545454', '370123200008083422', '山东省临沂市', 'user', '2021-08-27 16:05:25', '2022-08-23 15:19:28', 0, 0, '2ae82e5cf7ca47c9ab516d37dccab5dd.jpg', '张旭坤');
-INSERT INTO `tb_user` VALUES ('zqq', '$2a$10$89oh4FAsXnw2.SgPliPfVe/fVJir1m7VeyWZkfqhT.HAG11r24DCW', 'zqq', '13233138362', '130182200208145731', '山东省济南市', 'admin', '2023-06-24 13:20:35', '2023-06-24 13:20:35', 0, 0, 'rongxiaotong.gif', '张乾');
 INSERT INTO `tb_user` VALUES ('zwr', '$2a$10$AC1gCsk1V5Ov7n.zvkxxvuMM4f3BnWmJqr4jNNYtVAm8j4nBdxIUq', '张文瑞', '15623652222', '111111111111111111', '山东省威海市', 'user', '2021-08-30 09:20:24', '2022-08-23 15:23:34', 0, 0, 'bd12eba3a9a24d89845ebbdb7fbff449.jpg', '张文瑞');
 
 SET FOREIGN_KEY_CHECKS = 1;
